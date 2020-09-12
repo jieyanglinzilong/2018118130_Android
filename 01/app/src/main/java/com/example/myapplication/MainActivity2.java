@@ -14,7 +14,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         m=m+1;
-        System.out.println("创建活动 "+m);
+        System.out.println("创建活动   "+m);
         setContentView(R.layout.frist_layout);
         Button button=(Button)findViewById(R.id.button_1);
         button.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +70,6 @@ public class MainActivity2 extends AppCompatActivity {
 
         super.onRestart();
         m=m+1;
-        System.out.println("重启 "+m);
+        System.out.println("重启活动回调 "+m);
     }
 }
