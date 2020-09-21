@@ -10,7 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".singleinstance"></activity>
+        <activity android:name=".singleinstance"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".singleTask"
             android:exported="true"
@@ -25,7 +34,7 @@
         <activity
             android:name=".Standard"
             android:exported="true"
-            android:launchMode="singleTop"
+            android:launchMode="standard"
             tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

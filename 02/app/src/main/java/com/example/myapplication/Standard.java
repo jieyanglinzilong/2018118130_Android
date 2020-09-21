@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class Standard extends AppCompatActivity {
-
+    static String num="Standard";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +27,7 @@ public class Standard extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(Standard.this,"点击",Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(Standard.this,MainActivity.class);
+                Intent intent=new Intent(Standard.this,Standard.class);
                 startActivity(intent);
             }
         });
@@ -47,6 +47,8 @@ public class Standard extends AppCompatActivity {
 
             }
         });
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

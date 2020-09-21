@@ -15,8 +15,7 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        m=m+1;
-        System.out.println("创建活动   "+m);
+
         Log.d(TAG,"onCreate");
         setContentView(R.layout.frist_layout);
         Button button=(Button)findViewById(R.id.button_1);
@@ -34,8 +33,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         super.onStart();
         Log.d(TAG,"onStart");
-        m=m+1;
-        System.out.println("启动"+m);
+
     }
 
     @Override
@@ -43,17 +41,16 @@ public class MainActivity2 extends AppCompatActivity {
 
         super.onPause();
         Log.d(TAG,"onPause");
-        m=m+1;
-        System.out.println("暂停活动回调 "+m);
+
     }
 
     @Override
     protected void onResume() {
 
-        m=m+1;
+
         super.onResume();
         Log.d(TAG,"onResume");
-        System.out.println("恢复活动回调"+m);
+
     }
 
     @Override
@@ -61,8 +58,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         super.onStop();
         Log.d(TAG,"onStop");
-        m=m+1;
-        System.out.println("停止活动回调 "+m);
+
     }
 
     @Override
@@ -70,15 +66,13 @@ public class MainActivity2 extends AppCompatActivity {
 
         super.onDestroy();
         Log.d(TAG,"onDestroy");
-        m=m+1;
-        System.out.println("销毁活动回调 "+m);
+
     }
     @Override
     protected  void onRestart() {
 
         super.onRestart();
         Log.d(TAG,"onRestart");
-        m=m+1;
-        System.out.println("重启活动回调 "+m);
+
     }
 }
