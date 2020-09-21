@@ -10,21 +10,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Standard"
+        <activity android:name=".singleinstance"></activity>
+        <activity
+            android:name=".singleTask"
             android:exported="true"
-            tools:ignore="Instantiatable"
-            android:launchMode="singleTop">
+            android:launchMode="singleTask"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Standard"
+            android:exported="true"
+            android:launchMode="singleTop"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
-            tools:ignore="Instantiatable"
-            >
+            android:label="SingleTop"
+            android:launchMode="singleTop"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
