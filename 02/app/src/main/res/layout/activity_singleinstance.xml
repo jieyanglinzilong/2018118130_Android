@@ -18,7 +18,7 @@
         <Button android:id="@+id/button_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="定位"
+            android:text="跳转到singletop"
             tools:ignore="MissingConstraints"></Button>
     </LinearLayout>
 
