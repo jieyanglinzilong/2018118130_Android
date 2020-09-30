@@ -41,5 +41,11 @@
             android:id="@+id/editText">
 
         </EditText>
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ab" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
