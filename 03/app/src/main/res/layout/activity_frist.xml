@@ -17,5 +17,29 @@
             android:text="This my test1">
 
         </TextView>
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击按钮1"
+            android:textAllCaps="false">
+
+        </Button>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击按钮2"
+            android:textAllCaps="false">
+
+        </Button>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type something here"
+            android:maxLines="2"
+            android:id="@+id/editText">
+
+        </EditText>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
