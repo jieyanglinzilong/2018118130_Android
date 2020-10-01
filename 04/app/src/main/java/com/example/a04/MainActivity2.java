@@ -26,16 +26,16 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
     private void init(){
-         String[] data={"sister_d","sister_b","sister_a","sister_c"};
+         String[] data={"apple","grape","banana"};
          for(int i=0;i<2;i++){
-             Grils gril1=new Grils(data[0],R.drawable.ab);
+             Grils gril1=new Grils(data[0],R.drawable.apple_pic);
+
              grilsList.add(gril1);
-             Grils gril2=new Grils(data[1],R.drawable.al);
+             Grils gril2=new Grils(data[1],R.drawable.grape_pic);
              grilsList.add(gril2);
-             Grils gril3=new Grils(data[2],R.drawable.bd);
+             Grils gril3=new Grils(data[2],R.drawable.banana_pic);
              grilsList.add(gril3);
-             Grils gril4=new Grils(data[3],R.drawable.h);
-             grilsList.add(gril4);
+
 
         }
 

@@ -17,7 +17,7 @@ public class GrilsAdapter extends RecyclerView.Adapter<GrilsAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main2,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.grilitem,parent,false);
         ViewHolder viewHolder=new ViewHolder(view);
 
         return viewHolder;
@@ -32,6 +32,7 @@ public class GrilsAdapter extends RecyclerView.Adapter<GrilsAdapter.ViewHolder> 
         Grils grils=grilsList.get(position);
         holder.imageView.setImageResource(grils.getImageId());
         holder.textView.setText(grils.getName());
+
 
     }
 
