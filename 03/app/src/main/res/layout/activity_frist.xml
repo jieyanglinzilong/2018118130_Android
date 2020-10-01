@@ -33,6 +33,10 @@
             android:textAllCaps="false">
 
         </Button>
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/progress_bar"></ProgressBar>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
