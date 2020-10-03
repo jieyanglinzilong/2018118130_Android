@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +19,23 @@ public class GrilsAdapter extends RecyclerView.Adapter<GrilsAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.grilitem,parent,false);
-        ViewHolder viewHolder=new ViewHolder(view);
+        final ViewHolder viewHolder=new ViewHolder(view);
+        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position=viewHolder.getAdapterPosition();
+                Grils grils=grilsList.get(position);
+                Toast.makeText(view.getContext(),"点击当前"+grils.getName(),Toast.LENGTH_SHORT).show();
+            }
+        });
+        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position=viewHolder.getAdapterPosition();
+                Grils grils=grilsList.get(position);
+                Toast.makeText(view.getContext(),"点击当前"+grils.getName(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return viewHolder;
     }
