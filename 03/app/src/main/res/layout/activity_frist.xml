@@ -33,10 +33,11 @@
             android:textAllCaps="false">
 
         </Button>
+        <!--
         <ProgressBar
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/progress_bar"></ProgressBar>
+            android:id="@+id/progress_bar"></ProgressBar>-->
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,10 +47,12 @@
 
         </EditText>
 
+
+
         <ImageView
-            android:id="@+id/image1"
+            android:id="@+id/image2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ab" />
+            android:src="@drawable/h" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
