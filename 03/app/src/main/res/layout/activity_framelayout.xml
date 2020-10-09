@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Framelayout">
-    <!--
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -25,8 +25,8 @@
             android:src="@mipmap/ic_launcher">
 
         </ImageView>
-    </FrameLayout>-->
-<!--
+    </FrameLayout>
+
 
     <androidx.percentlayout.widget.PercentFrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -68,7 +68,7 @@
 
     </androidx.percentlayout.widget.PercentFrameLayout>
 
--->
+<!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,5 +108,5 @@
         </Button>
     </LinearLayout>
 
-
+-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,19 +12,23 @@
         <EditText
             android:id="@+id/editText"
             android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="wrap_content">
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
 
         </EditText>
         <Button
             android:id="@+id/button1"
-            android:layout_width="0dp"
+
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="点击按钮1"
-            android:textAllCaps="false">
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            tools:ignore="MissingConstraints">
 
         </Button>
+        <!--
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
@@ -43,7 +47,8 @@
             android:textAllCaps="false">
 
         </Button>
+
+
+-->
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

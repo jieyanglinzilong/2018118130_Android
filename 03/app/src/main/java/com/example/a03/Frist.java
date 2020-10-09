@@ -1,8 +1,10 @@
 package com.example.a03;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -19,10 +21,10 @@ public class Frist extends AppCompatActivity  implements View.OnClickListener{
         setContentView(R.layout.activity_frist);
         Button button=(Button)findViewById(R.id.button1);
         Button button1=(Button)findViewById(R.id.button2);
-        //progressBar=(ProgressBar)findViewById(R.id.progress_bar);
+        progressBar=(ProgressBar)findViewById(R.id.progress_bar);
         imageView=(ImageView)findViewById(R.id.image2);
         button.setOnClickListener(this);
-        button1.setOnClickListener(this);
+
 
     }
 
@@ -54,6 +56,21 @@ public class Frist extends AppCompatActivity  implements View.OnClickListener{
                 alertDialog.show();
 
 
+                break;
+            case R.id.button3:
+                /**
+                ProgressDialog progressDialog=new ProgressDialog(Frist.this);
+                progressDialog.setTitle("This is dialog");
+                progressDialog.setMessage("loading......");
+                progressDialog.setCancelable(true);
+                progressDialog.show();
+                break;**/
+                if(progressBar.getVisibility()== View.GONE){
+                    progressBar.setVisibility(View.VISIBLE);
+
+                }else{
+                    progressBar.setVisibility(View.GONE);
+                }
                 break;
             default:
                 break;
