@@ -21,7 +21,7 @@ public class Frist extends AppCompatActivity  implements View.OnClickListener{
         setContentView(R.layout.activity_frist);
         Button button=(Button)findViewById(R.id.button1);
         Button button1=(Button)findViewById(R.id.button2);
-        progressBar=(ProgressBar)findViewById(R.id.progress_bar);
+        //progressBar=(ProgressBar)findViewById(R.id.progress_bar);
         imageView=(ImageView)findViewById(R.id.image2);
         button.setOnClickListener(this);
 
