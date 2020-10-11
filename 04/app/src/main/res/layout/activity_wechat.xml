@@ -5,5 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Wechat">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view2"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1">
+
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+    <EditText
+        android:text="Type something here"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2">
+    </EditText>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/send"
+            android:text="Sned"></Button>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
