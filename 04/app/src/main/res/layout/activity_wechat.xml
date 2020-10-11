@@ -19,6 +19,7 @@
 
         </androidx.recyclerview.widget.RecyclerView>
     <EditText
+        android:id="@+id/input_text"
         android:text="Type something here"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
