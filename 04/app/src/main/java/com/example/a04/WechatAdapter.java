@@ -11,10 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WechatAdapter extends RecyclerView.Adapter<WechatAdapter.ViewHolders> {
-    List<Msg> msgList;
+    List<Msg> msgList=new ArrayList<Msg>();
 
     public WechatAdapter(List<Msg> msgList) {
         this.msgList=msgList;

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wechat extends AppCompatActivity {
-    private List<Msg> msgList=new ArrayList<>();
+    private List<Msg> msgList=new ArrayList<Msg>();
     private EditText editText;
     private Button send;
     private RecyclerView recyclerView;
@@ -24,7 +24,7 @@ public class Wechat extends AppCompatActivity {
         setContentView(R.layout.activity_wechat);
         editText=(EditText)findViewById(R.id.input_text);
         send=(Button)findViewById(R.id.send);
-        recyclerView.findViewById(R.id.recycler_view);
+        recyclerView=(RecyclerView)findViewById(R.id.recycler_view2);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         wechatAdapter=new WechatAdapter(msgList);

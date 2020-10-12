@@ -13,10 +13,8 @@
             android:id="@+id/recycler_view2"
             android:layout_height="0dp"
             android:layout_width="match_parent"
+            android:background="#d8e0e8"
             android:layout_weight="1">
-
-
-
         </androidx.recyclerview.widget.RecyclerView>
     <EditText
         android:id="@+id/input_text"
@@ -29,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/send"
-            android:text="Sned"></Button>
+            android:text="Send"></Button>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
