@@ -3,6 +3,8 @@
     package="com.example.a05">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Brocast_dynamic"
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="静态注册"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".Brocast_dynamic"
             android:label="广播的动态注册"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,7 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Brocast_static"
+        <activity
+            android:name=".Brocast_static"
             android:label="广播的静态注册"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
