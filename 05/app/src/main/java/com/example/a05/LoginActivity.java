@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LoginActivity extends Login{
+public class LoginActivity extends BaseAcitity{
     private EditText account_editText;
     private EditText password_editText;
     private Button login;
@@ -27,7 +27,7 @@ public class LoginActivity extends Login{
                 String account = account_editText.getText().toString();
                 String password = password_editText.getText().toString();
                 if(account.equals("lin")&&password.equals("123456")){
-                    Intent intent=new Intent(LoginActivity.this,MysqlTest.class);
+                    Intent intent=new Intent(LoginActivity.this,Aftetlogin.class);
                     startActivity(intent);
                     finish();
                 }

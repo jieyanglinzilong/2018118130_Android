@@ -56,6 +56,14 @@ public class MysqlTest extends AppCompatActivity {
         intentFilter.addAction("com.example.a05.localbrocast");
         localReceiver=new LocalReceiver();
         localBroadCast.registerReceiver(localReceiver,intentFilter);
+        Button button2=(Button)findViewById(R.id.button_3);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent("com.example.a05.fore_offline");
+                sendBroadcast(intent);
+            }
+        });
 
     }
     @Override

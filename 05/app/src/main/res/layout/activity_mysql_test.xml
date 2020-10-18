@@ -23,6 +23,13 @@
             android:id="@+id/button_2">
 
         </Button>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="强制下线功能"
+            android:id="@+id/button_3">
+
+        </Button>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
