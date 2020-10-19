@@ -33,19 +33,21 @@ public class file extends AppCompatActivity {
         setContentView(R.layout.activity_file);
         editText=(EditText)findViewById(R.id.edit);
         button=(Button)findViewById(R.id.button_1);
-        final String[] line = {null};
+        final String[] line = {""};
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                     line[0] =Read();
+                    line[0] = Read();
+                    System.out.println(line[0]);
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
-        Toast.makeText(file.this, line[0],Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "读取成功",Toast.LENGTH_SHORT).show();
     }
 
     @Override

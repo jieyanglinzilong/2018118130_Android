@@ -47,7 +47,7 @@ public class MysqlTest extends AppCompatActivity {
                 Log.i("Tag", "发送数据");
                 registerReceiver(receiver, intentFilter);//注册接收者
                 Intent intent = new Intent("com.example.a05.mymin");
-                intent.putExtra("zhh", "123456");
+                intent.putExtra("lin", "123456");
                 sendBroadcast(intent);
 
             }

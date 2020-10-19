@@ -10,7 +10,7 @@ public class Mybroadcast extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.e("111", "接收成功"+intent.getStringExtra("zhh"));
+        Log.e("111", "接收成功"+intent.getStringExtra("lin"));
         Toast.makeText(context,"接收成功",Toast.LENGTH_SHORT).show();
     }
 }
