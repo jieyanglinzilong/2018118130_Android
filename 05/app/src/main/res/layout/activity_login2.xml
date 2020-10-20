@@ -54,6 +54,22 @@
             android:inputType="textPassword"></EditText>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkbox"
+        >
+        </CheckBox>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Remeber password"></TextView>
+    </LinearLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
