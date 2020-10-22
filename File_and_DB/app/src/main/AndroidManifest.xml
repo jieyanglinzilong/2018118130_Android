@@ -9,7 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.File">
-        <activity android:name=".SharedPreferences"
+        <activity android:name=".db"
+            android:label="数据操作"
+            android:theme="@style/Theme.File.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SharedPreferences"
             android:label="优选项"
             android:theme="@style/Theme.File.NoActionBar">
             <intent-filter>
