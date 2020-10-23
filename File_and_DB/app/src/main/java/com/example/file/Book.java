@@ -1,4 +1,4 @@
-package com.example.file.Entiy;
+package com.example.file;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
