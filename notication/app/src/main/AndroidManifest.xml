@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Notication">
-        <activity android:name=".notation1"
+        <activity android:name=".Takephto"></activity>
+        <activity
+            android:name=".Mainui"
+            android:label="跳转主界面" />
+        <activity
+            android:name=".notation1"
             android:label="通知实验"
             android:theme="@style/Theme.Notication.NoActionBar">
             <intent-filter>
