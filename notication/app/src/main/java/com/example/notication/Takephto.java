@@ -58,9 +58,9 @@ public class Takephto extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT < 24) {
                     imageUri = Uri.fromFile(outputImage);
                 } else {
-                    imageUri = FileProvider.getUriForFile(Takephto.this, "com.example.cameraalbumtest.fileprovider", outputImage);
+                    imageUri = FileProvider.getUriForFile(Takephto.this, "com.example.notication.fileprovider", outputImage);
                 }
-                // ??????
+
                 Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                 startActivityForResult(intent, TAKE_PHOTO);
@@ -113,12 +113,12 @@ public class Takephto extends AppCompatActivity {
                 break;
             case CHOOSE_PHOTO:
                 if (resultCode == RESULT_OK) {
-                    // ?????????
+
                     if (Build.VERSION.SDK_INT >= 19) {
-                        // 4.4???????????????
+
                         handleImageOnKitKat(data);
                     } else {
-                        // 4.4??????????????
+
                         handleImageBeforeKitKat(data);
                     }
                 }
