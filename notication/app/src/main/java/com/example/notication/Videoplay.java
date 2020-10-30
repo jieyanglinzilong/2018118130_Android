@@ -40,12 +40,12 @@ public class Videoplay extends AppCompatActivity implements  View.OnClickListene
         }else{
             initVideopath();
         }
-        Toast.makeText(this,"加载完毕",Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this,"加载完毕",Toast.LENGTH_SHORT).show();
 
     }
 
     private void initVideopath() {
-        File file=new File("/data/user/0/com.example.notication/code_cache","lf.mp4");
+        File file=new File(Environment.getExternalStorageDirectory(),"lf.mp4");
         if(!file.exists()){
             Toast.makeText(this,"不存在此文件",Toast.LENGTH_SHORT).show();
         }
