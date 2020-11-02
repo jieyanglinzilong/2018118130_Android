@@ -21,6 +21,7 @@ public class Httpok extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_httpok);
         Button button=findViewById(R.id.SendRequest);
         textView=findViewById(R.id.TextView);
+
         button.setOnClickListener(this);
     }
 
@@ -37,11 +38,10 @@ public class Httpok extends AppCompatActivity implements View.OnClickListener {
             public void run() {
                 try{
                     OkHttpClient okHttpClient=new OkHttpClient();
-                    Request request=new Request.Builder().url("https://www.example.com").build();
+                    Request request=new Request.Builder().url("http://www.baidu.com").build();
                     Call call=okHttpClient.newCall(request);
                     Response response=call.execute();
                     String string = response.body().string();
-                    showRespones(string);
 
                 }catch (Exception e){
                     e.printStackTrace();
