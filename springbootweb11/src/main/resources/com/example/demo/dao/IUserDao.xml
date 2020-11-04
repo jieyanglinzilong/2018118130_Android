@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserDao">
+    <!--配置查询所有-->
+    <select id="findUser" resultType="com.example.demo.domain.User">
+        select * from user
+    </select>
+    <select id="findByName" parameterType="string" resultType="com.example.demo.domain.User">
+        select * from user where name = #{name}
+    </select>
+    <select id="getid" parameterType="string" resultType="int">
+        select id from user where name = #{name}
+    </select>
+
+
+
+
+
+</mapper>
