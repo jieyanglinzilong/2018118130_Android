@@ -7,7 +7,7 @@
     tools:context=".UI"
     android:id="@+id/drawer">
 
-    ><FrameLayout
+    ><androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <android.widget.Toolbar
@@ -19,11 +19,34 @@
         android:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
     </android.widget.Toolbar>
-    </FrameLayout>
-    <TextView
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/fab"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_done"
+        android:elevation="8dp">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header">
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+
+
+
+   <!-- <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:text="This is menu"
-        android:background="#FFF"></TextView>
+        android:background="#FFF"></TextView>-->
    </androidx.drawerlayout.widget.DrawerLayout>

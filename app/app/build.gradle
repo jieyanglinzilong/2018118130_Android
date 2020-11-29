@@ -29,8 +29,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:23.0.1'
-    implementation 'com.android.support:design:23.1.1'
+
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -40,5 +39,10 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:24.2.1'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.google.android.material:material:1.0.0-rc01'
+
 
 }
