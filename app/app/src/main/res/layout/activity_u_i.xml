@@ -19,6 +19,23 @@
         android:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
     </android.widget.Toolbar>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srl_swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recycle_view"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"></androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/fab"
@@ -27,6 +44,7 @@
         android:elevation="8dp">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
