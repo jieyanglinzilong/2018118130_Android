@@ -10,6 +10,35 @@
     ><androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    <com.google.android.material.appbar.AppBarLayout android:layout_height="250dp"
+        android:id="@+id/appBar"
+        android:layout_width="match_parent">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_width="match_parent"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:layout_height="match_parent">
+            <ImageView
+                app:layout_collapseMode="parallax"
+                android:id="@+id/fruit_image_view"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </ImageView>
+            <androidx.appcompat.widget.Toolbar android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+
+                android:id="@+id/toolbar2"
+                android:layout_width="match_parent">
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
     <android.widget.Toolbar
          android:id="@+id/toolbar"
         android:layout_height="?attr/actionBarSize"
