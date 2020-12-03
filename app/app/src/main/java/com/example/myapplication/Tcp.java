@@ -2,9 +2,12 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.Preference;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -14,21 +17,27 @@ import android.widget.Toast;
 
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.SmackException;
+import org.jivesoftware.smack.StanzaListener;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.chat.Chat;
 import org.jivesoftware.smack.chat.ChatManager;
 import org.jivesoftware.smack.chat.ChatManagerListener;
 import org.jivesoftware.smack.chat.ChatMessageListener;
+import org.jivesoftware.smack.filter.AndFilter;
+import org.jivesoftware.smack.filter.StanzaTypeFilter;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Presence;
+import org.jivesoftware.smack.packet.Stanza;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Tcp extends AppCompatActivity implements View.OnClickListener {
     EditText account, password,to,content;
-    Button login,logout,send;
+    Button login,logout,send,addButton;
     XMPPTCPConnection connection;
 
 
@@ -47,11 +56,110 @@ public class Tcp extends AppCompatActivity implements View.OnClickListener {
         content = (EditText) findViewById(R.id.content);
         login = (Button) findViewById(R.id.login);
         logout = (Button) findViewById(R.id.logout);
+        addButton=(Button)findViewById(R.id.addfriend);
         send = (Button) findViewById(R.id.send);
         login.setOnClickListener(this);
         logout.setOnClickListener(this);
         send.setOnClickListener(this);
+        addButton.setOnClickListener(this);
+        //条件过滤器
+        //AndFilter filter = new AndFilter(new StanzaTypeFilter(Presence.class));
+        //添加监听
+       //connection.addAsyncStanzaListener(packetListener, filter);
 
+    }
+
+    static StanzaListener packetListener = new StanzaListener() {
+        private Log YbLogUtil;
+
+        @Override
+        public void processPacket(Stanza packet) throws SmackException.NotConnectedException {
+            if (packet instanceof Presence) {
+                Presence presence = (Presence) packet;
+                String fromId = presence.getFrom();
+                String from = presence.getFrom().split("@")[0];//我这里只为了打印去掉了后缀
+                if (presence.getType().equals(Presence.Type.subscribe)) {
+                  //  YbLogUtil.d(from);
+                } else if (presence.getType().equals(Presence.Type.subscribed)) {//对方同意订阅
+                   // YbLogUtil.d("yangbinnew同意订阅" + from);
+                } else if (presence.getType().equals(Presence.Type.unsubscribe)) {//取消订阅
+                    //YbLogUtil.d("yangbinnew取消订阅" + from);
+                } else if (presence.getType().equals(Presence.Type.unsubscribed)) {//拒绝订阅
+                   // YbLogUtil.d("yangbinnew拒绝订阅" + from);
+                } else if (presence.getType().equals(Presence.Type.unavailable)) {//离线
+                    //YbLogUtil.d("yangbinnew离线" + from);
+                } else if (presence.getType().equals(Presence.Type.available)) {//上线
+                    //YbLogUtil.d("yangbinnew上线" + from);
+                }
+            }
+        }
+    };
+    /**
+     * 创建一个新用户
+     *
+     * @param name 用户名
+     * @param password 密码
+     * @param attr     一些用户资料
+     * @see AccountManager
+     */
+    public boolean registerAccount(String name, String password, Map<String, String> attr) {
+
+
+        try {
+           // getConnection();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        connection.connect();
+                    } catch (SmackException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (XMPPException e) {
+                        e.printStackTrace();
+                    }
+                    org.jivesoftware.smackx.iqregister.AccountManager manager =  org.jivesoftware.smackx.iqregister.AccountManager.getInstance(connection);
+                    manager.sensitiveOperationOverInsecureConnection(true);
+                    if (attr == null) {
+                        try {
+                            manager.createAccount(name, password);
+                            System.out.println("hello1");
+                        } catch (SmackException.NoResponseException e) {
+                            e.printStackTrace();
+                        } catch (XMPPException.XMPPErrorException e) {
+                            e.printStackTrace();
+                        } catch (SmackException.NotConnectedException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        try {
+                            System.out.println("hello2");
+                            manager.createAccount(name, password, attr);
+                            Thread.sleep(1000);
+
+                        } catch (SmackException.NoResponseException e) {
+                            e.printStackTrace();
+                        } catch (XMPPException.XMPPErrorException e) {
+                            e.printStackTrace();
+                        } catch (SmackException.NotConnectedException e) {
+                            e.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    System.out.println("完成操作");
+
+
+
+                }
+            }).start();
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
     private Handler mHandler=new Handler(){
         @Override
@@ -148,6 +256,20 @@ public class Tcp extends AppCompatActivity implements View.OnClickListener {
                 catch (SmackException.NotConnectedException e) {
                     e.printStackTrace();
                 }
+                break;
+            case R.id.addfriend:
+                Toast.makeText(this,"hello",Toast.LENGTH_SHORT).show();
+
+                String name="test3";
+                Map<String,String> map=new HashMap<String, String>();
+                //map.put("name",name);
+                //map.put("email","1679569188@qq.com");
+                //map.put("city","韶关");
+                String password="root";
+                System.out.println("添加用户");
+                registerAccount(name,password,map);
+                break;
+            default:
                 break;
         }
 

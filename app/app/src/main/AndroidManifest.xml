@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".Tcp"
+        <activity android:name=".AddFriendActivity"></activity>
+        <activity
+            android:name=".Tcp"
             android:label="测试聊天功能"
             android:theme="@style/Theme.MyApplication.NoActionBar">
             <intent-filter>
@@ -20,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Bitmap"
             android:label="获取服务器图片"
