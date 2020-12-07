@@ -28,16 +28,24 @@ import org.jivesoftware.smack.filter.StanzaTypeFilter;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Stanza;
+import org.jivesoftware.smack.roster.Roster;
+import org.jivesoftware.smack.roster.RosterEntry;
+import org.jivesoftware.smack.roster.RosterGroup;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Tcp extends AppCompatActivity implements View.OnClickListener {
     EditText account, password,to,content;
-    Button login,logout,send,addButton;
+    Button login,logout,send,addButton,addfriends;
     XMPPTCPConnection connection;
 
 
@@ -58,6 +66,8 @@ public class Tcp extends AppCompatActivity implements View.OnClickListener {
         logout = (Button) findViewById(R.id.logout);
         addButton=(Button)findViewById(R.id.addfriend);
         send = (Button) findViewById(R.id.send);
+        addfriends=(Button)findViewById(R.id.group);
+        addfriends.setOnClickListener(this);
         login.setOnClickListener(this);
         logout.setOnClickListener(this);
         send.setOnClickListener(this);
@@ -186,6 +196,71 @@ public class Tcp extends AppCompatActivity implements View.OnClickListener {
         XMPPTCPConnection connection = new XMPPTCPConnection(builder.build());
         return connection;
     }
+    public void Addfriends(String friendName,String name) throws IOException, XMPPException, SmackException {
+        //Roster roster=Roster.getInstanceFor(getConnection());
+
+
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                   //
+                    //
+
+
+
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                XMPPTCPConnection connection=getConnection();
+                                connection.connect();
+                                connection.login(friendName, "root");
+                                ChatManager chatmanager = ChatManager.getInstanceFor(connection);
+                                Roster roster=Roster.getInstanceFor(connection);
+                                System.out.println(connection.getUser());
+                                roster.createEntry(friendName.trim()+"@"+"121.37.212.47", name, new String[]{"Friends"});
+                                System.out.println("添加好友成功！！");
+                            } catch (SmackException.NotLoggedInException e) {
+                                e.printStackTrace();
+                            } catch (SmackException.NoResponseException e) {
+                                e.printStackTrace();
+                            } catch (XMPPException.XMPPErrorException e) {
+                                e.printStackTrace();
+                            } catch (SmackException.NotConnectedException e) {
+                                e.printStackTrace();
+                            } catch (XMPPException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (SmackException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }).start();
+                    System.out.println(connection.getUser());
+
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+                }
+
+        }).start();
+
+    }
+    public  List<RosterEntry> getallEntries(Roster roster) {
+
+        List<RosterEntry> Entrieslist = new ArrayList<RosterEntry>();
+        Collection<RosterEntry> rosterEntry = roster.getEntries();
+        Iterator<RosterEntry> i = rosterEntry.iterator();
+        while (i.hasNext()) {
+            Entrieslist.add(i.next());
+        }
+        return Entrieslist;
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -203,9 +278,22 @@ public class Tcp extends AppCompatActivity implements View.OnClickListener {
                             connection.connect();
                             connection.login(a, p);
                             Presence presence = new Presence(Presence.Type.available);
+                            presence.setType(Presence.Type.subscribed);
                             presence.setStatus("我是在线状态");
                             connection.sendStanza(presence);
+
                             ChatManager chatmanager = ChatManager.getInstanceFor(connection);
+                            //获取好友列表
+                            System.out.println("获取好友列表");
+                            Roster roster =Roster.getInstanceFor(connection);
+                            Set<RosterEntry> rosterEntries = roster.getEntries();
+                            Iterator<RosterEntry> rosterEntryIterator =rosterEntries.iterator();
+                            while (rosterEntryIterator.hasNext()){
+                                RosterEntry rosterEntry = rosterEntryIterator.next();
+                                System.out.println(rosterEntry);
+                            }
+
+                            System.out.println("获取好友完毕");
                             chatmanager.addChatListener(new ChatManagerListener() {
                                 @Override
                                 public void chatCreated(Chat chat, boolean createdLocally) {
@@ -260,15 +348,27 @@ public class Tcp extends AppCompatActivity implements View.OnClickListener {
             case R.id.addfriend:
                 Toast.makeText(this,"hello",Toast.LENGTH_SHORT).show();
 
-                String name="test3";
+                String name="test4";
                 Map<String,String> map=new HashMap<String, String>();
-                //map.put("name",name);
-                //map.put("email","1679569188@qq.com");
-                //map.put("city","韶关");
+                map.put("name",name);
+                map.put("email","1679569188@qq.com");
+                map.put("city","韶关");
                 String password="root";
                 System.out.println("添加用户");
                 registerAccount(name,password,map);
                 break;
+            case R.id.group:
+                String friendsname="test3";
+                String user="test1";
+                try {
+                    Addfriends(user, friendsname);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (XMPPException e) {
+                    e.printStackTrace();
+                } catch (SmackException e) {
+                    e.printStackTrace();
+                }
             default:
                 break;
         }
