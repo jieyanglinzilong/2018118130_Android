@@ -45,8 +45,8 @@ public class dbtest extends AppCompatActivity {
         sqLiteDatabase.insert("user",null, contentValues);
         Toast.makeText(this,"注册成功",Toast.LENGTH_SHORT).show();
     }
-    public void addMysql(long id, String name, String password){
-        new Thread(new Runnable() {
+   public void addMysql(long id, String name, String password){
+        new Thread(new  Runnable() {
             @Override
             public void run() {
                 DBsupport dBsupport=new DBsupport();

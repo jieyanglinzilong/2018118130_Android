@@ -1,9 +1,15 @@
 package com.example.myapplication.dbsupport;
 
+import android.content.Intent;
 import android.util.Log;
+
+import com.example.myapplication.LoginActivity;
+import com.example.myapplication.Register;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -70,5 +76,6 @@ public class DBsupport  {
 
         return conn;
     }
+
 
 }
