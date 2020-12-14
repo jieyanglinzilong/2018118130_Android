@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.coolweather.android.db.City;
+import com.coolweather.android.db.County;
 import com.coolweather.android.util.HttpUtil;
 import com.coolweather.android.util.Utility;
 import com.tencent.map.geolocation.TencentLocation;
@@ -57,7 +58,8 @@ public class Location extends AppCompatActivity implements TencentLocationListen
             startActivity(intent);*/
 
         mLocationManager = TencentLocationManager.getInstance(this);
-        mLocationManager.requestLocationUpdates(TencentLocationRequest.create().setRequestLevel(TencentLocationRequest.REQUEST_LEVEL_POI).setInterval(500).setAllowDirection(true), this);
+        //mLocationManager.requestLocationUpdates(TencentLocationRequest.create().setRequestLevel(TencentLocationRequest.REQUEST_LEVEL_POI).setInterval(500).setAllowDirection(true), this);
+
 
 //TencentLocationRequest.REQUEST_LEVEL_POI这是请求级别，最高的，不懂的可以看官方文档很详细哦
     }
@@ -72,6 +74,7 @@ public class Location extends AppCompatActivity implements TencentLocationListen
         //System.out.println(province+"++++haha+++"+city);
         List<City> cityList= DataSupport.select("cityCode","cityName").where("cityname=?",city).find(City.class);
 
+        String weatherId=null;
         if(cityList!=null){
             System.out.println(province+"+++++++"+city);
 
@@ -79,7 +82,18 @@ public class Location extends AppCompatActivity implements TencentLocationListen
                 id = city1.getCityCode();
 
                 System.out.println("id"+id);
-            }}
+            }
+            List<County> countyList = DataSupport.select("countyName","weatherId","id").where("countyName=?", city).find(County.class);
+            for (County county:countyList){
+                weatherId=county.getWeatherId();
+                System.out.println("weatherId "+county.getWeatherId()+" "+county.getCountyName());
+            }
+            Intent intent = new Intent(Location.this, WeatherActivity.class);
+
+            intent.putExtra("weather_id", weatherId);
+            startActivity(intent);
+
+        }
          else{
             System.out.println(province+"++++haha+++"+city);
             String address = "http://guolin.tech/api/china"+21;
