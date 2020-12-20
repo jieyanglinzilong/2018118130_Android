@@ -26,25 +26,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="MissingClass">
         <activity android:name=".Location">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="com.example.myapplication.Register" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
     </activity>
         <activity
             android:name=".MainActivity"
             tools:ignore="Instantiatable">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="登陆">
+            android:label="酷我天气">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -56,7 +47,10 @@
             android:name=".Register"
             android:label="注册界面">
             <intent-filter>
-                <category android:name="com.example.myapplication.Register" />
+                <action android:name="android.intent.action.MAIN" />
+
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity

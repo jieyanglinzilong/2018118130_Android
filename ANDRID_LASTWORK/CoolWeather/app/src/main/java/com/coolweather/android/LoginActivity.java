@@ -65,8 +65,8 @@ public class LoginActivity extends AppCompatActivity  {
             dialog.setNegativeButton("前往注册", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                 Intent intent=new Intent(LoginActivity.this,MainActivity.class);
-                 startActivity(intent);
+                    Intent intent=new Intent(LoginActivity.this,Register.class);
+                    startActivity(intent);
                 }
             });
 
@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity  {
                 Cursor cursor = sqLiteDatabase.rawQuery("select * from user where name=? and password=?", new String[]{account,password});
 
                 if(cursor.getCount()>0){
-                    Intent intent=new Intent(LoginActivity.this,Register.class);
+                    Intent intent=new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(intent);
                 }
                 else{

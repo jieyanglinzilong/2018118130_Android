@@ -1,6 +1,7 @@
 package com.coolweather.android;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -57,6 +58,8 @@ public class Register extends AppCompatActivity {
 
         sqLiteDatabase.insert("user",null, contentValues);
         Toast.makeText(this,"注册成功", Toast.LENGTH_SHORT).show();
+        Intent intent=new Intent(Register.this,LoginActivity.class);
+        startActivity(intent);
     }
     public void addMysql(final long id, final String name, String password){
         new Thread(new Runnable() {

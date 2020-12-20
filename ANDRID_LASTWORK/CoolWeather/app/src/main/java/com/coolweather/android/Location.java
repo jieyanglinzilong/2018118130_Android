@@ -95,7 +95,7 @@ public class Location extends AppCompatActivity implements TencentLocationListen
 
         }
          else{
-            System.out.println(province+"++++haha+++"+city);
+
             String address = "http://guolin.tech/api/china"+21;
             query(address,21);
 

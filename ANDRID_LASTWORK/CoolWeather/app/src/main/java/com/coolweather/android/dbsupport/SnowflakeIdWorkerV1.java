@@ -12,7 +12,7 @@ public class SnowflakeIdWorkerV1 {
 
     static {
         // START_STMP是服务器第一次上线时间点, 设置后不允许修改
-        START_STMP = 1596211200000L;
+        START_STMP = 2096211200000L;
     }
 
     /**

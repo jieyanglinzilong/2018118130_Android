@@ -107,7 +107,7 @@ public class WeatherActivity extends AppCompatActivity {
             // 有缓存时直接解析天气数据
             Weather weather = Utility.handleWeatherResponse(weatherString);
             mWeatherId = weather.basic.weatherId;
-            System.out.println("***************"+mWeatherId);
+
             showWeatherInfo(weather);
         } else {
             // 无缓存时去服务器查询天气
@@ -140,7 +140,7 @@ public class WeatherActivity extends AppCompatActivity {
      */
     public void requestWeather(final String weatherId) {
         String weatherUrl = "http://guolin.tech/api/weather?cityid=" + weatherId + "&key=bc0418b57b2d4918819d3974ac1285d9";
-        System.out.println("天气的id是 "+weatherId);
+   
         HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
