@@ -18,4 +18,4 @@ Androidsdk24
 
 ### 1.登陆和注册
 
-![](lg.assets/登陆验证.PNG)
+![](https://github.com/jieyanglinzilong/2018118130_Android/blob/master/ANDRID_LASTWORK/%E6%80%BB%E7%BB%93/%E7%99%BB%E9%99%86%E9%AA%8C%E8%AF%81.PNG)
