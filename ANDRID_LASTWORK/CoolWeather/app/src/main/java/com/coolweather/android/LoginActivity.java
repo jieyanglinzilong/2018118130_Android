@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 String account = account_editText.getText().toString();
                 String password = password_editText.getText().toString();
+
                 SQLiteDatabase sqLiteDatabase=sqliteSupport.getWritableDatabase();
                 Cursor cursor = sqLiteDatabase.rawQuery("select * from user where name=? and password=?", new String[]{account,password});
 

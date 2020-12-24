@@ -4,15 +4,15 @@ package com.coolweather.android.db;
 import org.litepal.crud.DataSupport;
 
 public class  User  {
-    private String id;
+    private  long id;
     private String name;
     private String password;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
